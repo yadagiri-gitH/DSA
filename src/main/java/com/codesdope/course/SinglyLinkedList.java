@@ -1,13 +1,14 @@
 package com.codesdope.course;
 
-class Node {
+/*class Node {
     public int data;
     public Node next;
 
     public Node(int data) {
         this.data = data;
+        this.next=null;
     }
-}
+}*/
 
 public class SinglyLinkedList {
     private Node head;
@@ -22,7 +23,7 @@ public class SinglyLinkedList {
 
 
     public void print() {
-        Node temp = this.head;
+        Node temp = head;
         while (temp != null) {
             System.out.println(temp.data);
             temp = temp.next;
@@ -164,8 +165,8 @@ public class SinglyLinkedList {
         System.out.println("Print Current List 2 after node insertion at first");
         list2.print();
 
-        z = new Node(100);
-        list2.insertAtLast(z);
+        Node last= new Node(100);
+        list2.insertAtLast(last);
 
         System.out.println("Print Current List 2 after node insertion at last");
         list2.print();
@@ -187,6 +188,7 @@ public class SinglyLinkedList {
 
         list2.delete(list2.head);
         list2.delete(z);
+        list2.delete(last);
 
         System.out.println("Print Current List 2 after deletion");
         list2.print();
