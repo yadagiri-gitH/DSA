@@ -128,7 +128,7 @@ public class DoublyLinkedList {
         list.add(4);
         list.add(8);
 
-        System.out.println("Printing default Double Linked List after adding");
+        System.out.println("Printing Double Linked List after adding");
         list.print();
 
         list.delete(2);
@@ -160,7 +160,7 @@ public class DoublyLinkedList {
         list.print();
 
 
-        //Coursedope
+        //CodesDope
 
         DoublyLinkedList l = new DoublyLinkedList(10);
 
@@ -174,7 +174,7 @@ public class DoublyLinkedList {
         a.next = b;
         b.next = c;
 
-        System.out.println("Now Printing Course dope Double Linked List");
+        System.out.println("Now Printing CodesDope Double Linked List");
         l.print();
 
         Node z;

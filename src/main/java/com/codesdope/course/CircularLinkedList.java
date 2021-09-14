@@ -133,7 +133,7 @@ public class CircularLinkedList {
         System.out.println("After deleting all data & Now Printing Current Circular Linked List");
         list.traversal();
 
-        //Coursedope
+        //CodesDope
 
         CircularLinkedList l = new CircularLinkedList(10);
 
@@ -147,7 +147,7 @@ public class CircularLinkedList {
         b.next = c;
         c.next = l.last;
 
-        System.out.println("Now Printing Course dope Circular Linked List");
+        System.out.println("Now Printing CodesDope Circular Linked List");
         l.traversal();
 
         Node z;
@@ -158,13 +158,13 @@ public class CircularLinkedList {
         z = new Node(100);
         l.insertAtLast(z);
 
-        System.out.println("Now Printing Course dope Circular Linked List");
+        System.out.println("Now Printing CodesDope Circular Linked List");
         l.traversal();
 
         l.delete(l.last);
         l.delete(b);
 
-        System.out.println("Now Printing Course dope Circular Linked List after deleting 100 & 30");
+        System.out.println("Now Printing CodesDope Circular Linked List after deleting 100 & 30");
         l.traversal();
     }
 }

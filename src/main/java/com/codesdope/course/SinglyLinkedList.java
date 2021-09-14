@@ -143,6 +143,7 @@ public class SinglyLinkedList {
         System.out.println("Print Current List 1");
         list1.print();
 
+        //CodesDope
         SinglyLinkedList list2 = new SinglyLinkedList(15);
 
         Node a = new Node(20);
@@ -153,7 +154,7 @@ public class SinglyLinkedList {
         a.next = b;
         b.next = c;
 
-        System.out.println("Print Current List 2");
+        System.out.println("Printing CodesDope Single Linked List");
         list2.print();
 
         Node z = new Node(0);
@@ -162,19 +163,19 @@ public class SinglyLinkedList {
         z = new Node(-10);
         list2.insertAtFirst(z);
 
-        System.out.println("Print Current List 2 after node insertion at first");
+        System.out.println("Printing CodesDope Single Linked List after node insertion at beginning");
         list2.print();
 
         Node last= new Node(100);
         list2.insertAtLast(last);
 
-        System.out.println("Print Current List 2 after node insertion at last");
+        System.out.println("Printing CodesDope Single Linked List after node insertion at last");
         list2.print();
 
         z = new Node(30);
         list2.insertNodeAfter(z, a);
 
-        System.out.println("Print Current List 2 after insertion node after");
+        System.out.println("Printing CodesDope Single Linked List after calling insert node after");
         list2.print();
 
         z = new Node(40);
@@ -183,14 +184,14 @@ public class SinglyLinkedList {
         z = new Node(500);
         list2.insertNodeAfter(z, a.next.next);
 
-        System.out.println("Print Current List 2 after insertion node after");
+        System.out.println("Printing CodesDope Single Linked List after insertion node after");
         list2.print();
 
         list2.delete(list2.head);
         list2.delete(z);
         list2.delete(last);
 
-        System.out.println("Print Current List 2 after deletion");
+        System.out.println("Printing CodesDope Single Linked List after deletion");
         list2.print();
     }
 
