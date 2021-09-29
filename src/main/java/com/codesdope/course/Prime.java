@@ -7,6 +7,7 @@ public class Prime {
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 prime = false;
+                break;
             }
         }
         return prime;
@@ -24,6 +25,6 @@ public class Prime {
             number++;
         }
         long end = System.currentTimeMillis();
-        System.out.println((end - start)/1000+" seconds took for completion");
+        System.out.println((end - start) / 1000 + " second(s) took for completion");
     }
 }

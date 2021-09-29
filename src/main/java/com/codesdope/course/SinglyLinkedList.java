@@ -1,15 +1,5 @@
 package com.codesdope.course;
 
-/*class Node {
-    public int data;
-    public Node next;
-
-    public Node(int data) {
-        this.data = data;
-        this.next=null;
-    }
-}*/
-
 public class SinglyLinkedList {
     private Node head;
 
@@ -109,6 +99,15 @@ public class SinglyLinkedList {
         }
     }
 
+    class Node {
+        public int data;
+        public Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
 
     public static void main(String[] args) {
 
@@ -144,7 +143,7 @@ public class SinglyLinkedList {
         list1.print();
 
         //CodesDope
-        SinglyLinkedList list2 = new SinglyLinkedList(15);
+       /* SinglyLinkedList list2 = new SinglyLinkedList(15);
 
         Node a = new Node(20);
         Node b = new Node(50);
@@ -166,7 +165,7 @@ public class SinglyLinkedList {
         System.out.println("Printing CodesDope Single Linked List after node insertion at beginning");
         list2.print();
 
-        Node last= new Node(100);
+        Node last = new Node(100);
         list2.insertAtLast(last);
 
         System.out.println("Printing CodesDope Single Linked List after node insertion at last");
@@ -192,7 +191,7 @@ public class SinglyLinkedList {
         list2.delete(last);
 
         System.out.println("Printing CodesDope Single Linked List after deletion");
-        list2.print();
+        list2.print();*/
     }
-
 }
+
