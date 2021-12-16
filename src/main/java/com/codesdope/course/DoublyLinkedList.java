@@ -1,17 +1,5 @@
 package com.codesdope.course;
 
-class Node {
-    public int data;
-    public Node next;
-    public Node prev;
-
-    public Node(int data) {
-        this.data = data;
-        this.next = null;
-        this.prev = null;
-    }
-}
-
 public class DoublyLinkedList {
     public Node head;
 
@@ -117,6 +105,18 @@ public class DoublyLinkedList {
         }
         if (a.next != null) {
             a.next.prev = a.prev;
+        }
+    }
+
+    static class Node {
+        public int data;
+        public Node next;
+        public Node prev;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+            this.prev = null;
         }
     }
 
