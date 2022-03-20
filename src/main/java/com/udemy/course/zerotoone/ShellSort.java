@@ -14,7 +14,6 @@ public class ShellSort {
     }
 
     public static void insertionSort(int[] listToSort, int startIndex, int increment) {
-
         //System.out.println("increment : " + increment);
         for (int i = startIndex; i < listToSort.length; i = i + increment) {
             for (int j = Math.min(i + increment, listToSort.length - 1); j - increment >= 0; j = j - increment) {
@@ -28,8 +27,6 @@ public class ShellSort {
             // System.out.print("Iteration " + (i + 1) + " : ");
             //print(listToSort);
         }
-
-
     }
 
     public static void shellSort(int[] listToSort) {
