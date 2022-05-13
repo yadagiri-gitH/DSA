@@ -5,22 +5,33 @@ import java.util.Arrays;
 public class QuickSort {
 
     public static int partition(int[] arr, int low, int high) {
+        print(arr,low,high);
         int pivot = arr[low];
         int l = low;
         int h = high;
         while (l < h) {
             while (arr[l] <= pivot && l < h) {
                 l++;
+                System.out.println("now lower index is " + l);
             }
             while (arr[h] > pivot) {
                 h--;
+                System.out.println("now higher index is " + h);
             }
             if (l < h) {
+                System.out.println("swapping elements index are {" + l + "," + h + "} and list after swapping ");
                 swap(arr, l, h);
+                print(arr);
+            }
+            else {
+                System.out.println("no swapping elements and coming out of the loop and now complete list is arranged as");
+                print(arr);
             }
         }
+
+        System.out.println("finally pivot swapping indexes are {" + low + "," + h + "} and list after swapping ");
         swap(arr, low, h);
-        System.out.println("Pivot Index: " + h + " & With Value :" + pivot);
+        print(arr);
         return h;
     }
 
@@ -31,18 +42,14 @@ public class QuickSort {
     }
 
     public static void quicksort(int[] arr, int l, int h) {
-        System.out.print("Total list with index range {"+l+","+h+"} is :");
-        print(arr, l, h);
+        System.out.println("quick sort index range {"+l+","+h+"}");
 
         if (l >= h) {
             return;
         }
         int pivotIndex = partition(arr, l, h);
-        //System.out.print("1st partition list is :");
-        //print(arr, 0, pivotIndex - 1);
+        System.out.println("return pivot index is "+pivotIndex);
         quicksort(arr, 0, pivotIndex - 1);
-        //System.out.print("2nd partition list is :");
-        //print(arr, pivotIndex + 1, h);
         quicksort(arr, pivotIndex + 1, h);
     }
 
