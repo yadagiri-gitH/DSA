@@ -25,14 +25,13 @@ public class UniqueCharacterString {
     }
 
     public boolean isUniqueCharStringUsingBitSet(String s) {
-        int bit = 0;
+        int bitChecker = 0;
         for (int i = 0; i < s.length(); i++) {
-            int charNum = s.charAt(i) - 'a';
-            int value = bit & (1 << charNum);
-            if (value > 0) {
+            int val = s.charAt(i) - 'a';
+            if ((bitChecker & (1 << val)) > 0) {
                 return false;
             }
-            bit |= charNum;
+            bitChecker |= (1 << val);
         }
         return true;
     }
