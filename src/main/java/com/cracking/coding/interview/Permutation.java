@@ -2,7 +2,7 @@ package com.cracking.coding.interview;
 
 import java.util.Arrays;
 
-public class PermutationOfOther {
+public class Permutation {
 
     public boolean isPermutationOfOtherStrBST(String s1, String s2) {
         if (s1.length() != s2.length()) {
@@ -69,7 +69,7 @@ public class PermutationOfOther {
     }
 
     public static void main(String[] args) {
-        PermutationOfOther pemo = new PermutationOfOther();
+        Permutation pemo = new Permutation();
         System.out.println(pemo.isPermutationOfOtherStrBST("madam", "damam"));
         System.out.println(pemo.isPermutationOfOtherStr("madam", "damam"));
         System.out.println(pemo.isPermutationOfOtherString("madam", "mamda"));

@@ -1,6 +1,6 @@
 package com.cracking.coding.interview;
 
-public class UniqueCharacterString {
+public class UniqueCharacter {
 
     public boolean isUniqueCharStringUsingBruteForce(String s) {
         for (int i = 0; i < s.length() - 1; i++) {
@@ -37,7 +37,7 @@ public class UniqueCharacterString {
     }
 
     public static void main(String[] args) {
-        UniqueCharacterString ucs = new UniqueCharacterString();
+        UniqueCharacter ucs = new UniqueCharacter();
         System.out.println(ucs.isUniqueCharStringUsingBruteForce("abcdefghij"));
         System.out.println(ucs.isUniqueCharStringUsingAscii("abcdefghij"));
         System.out.println(ucs.isUniqueCharStringUsingBitSet("abcdefghij"));
