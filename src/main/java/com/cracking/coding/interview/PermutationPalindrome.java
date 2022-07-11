@@ -44,8 +44,27 @@ public class PermutationPalindrome {
         return true;
     }
 
+    public static boolean isPermutationOfPalindromeAlt(String str) {
+        int ch[] = new int['z' - 'a' + 1];
+        int countOdd = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) >= 'a' && str.charAt(i) <= 'z') {
+                int c = str.charAt(i) - 'a';
+                ch[c]++;
+                if (ch[c] % 2 == 1) {
+                    countOdd++;
+                } else {
+                    countOdd--;
+                }
+            }
+        }
+
+        return countOdd <= 1;
+    }
+
     public static void main(String[] args) {
-        String str="ab cb a. ";
-        System.out.println(str +" is Permutation Of Palindrome : "+isPermutationOfPalindrome(str));
+        String str = "ab cb cga. ";
+        System.out.println(str + " is Permutation Of Palindrome : " + isPermutationOfPalindrome(str));
+        System.out.println(str + " is Permutation Of Palindrome : " + isPermutationOfPalindromeAlt(str));
     }
 }
