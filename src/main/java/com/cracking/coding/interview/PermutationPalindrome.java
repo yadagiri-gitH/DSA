@@ -62,9 +62,27 @@ public class PermutationPalindrome {
         return countOdd <= 1;
     }
 
+    public static boolean isPermutationOfPalindromeUsingBitSet(String str) {
+        int countOdd = 0;
+        int bit = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) >= 'a' && str.charAt(i) <= 'z') {
+                int c = str.charAt(i) - 'a';
+                countOdd = bit & 1 << c;
+                if (countOdd > 0) {
+                    bit ^= 1 << c; //bit &= ~(1<<c)
+                } else
+                    bit |= 1 << c;
+            }
+        }
+
+        return (bit & (bit - 1)) == 0;
+    }
+
     public static void main(String[] args) {
-        String str = "ab cb cga. ";
+        String str = "ab cb cgaf. ";
         System.out.println(str + " is Permutation Of Palindrome : " + isPermutationOfPalindrome(str));
         System.out.println(str + " is Permutation Of Palindrome : " + isPermutationOfPalindromeAlt(str));
+        System.out.println(str + " is Permutation Of Palindrome : " + isPermutationOfPalindromeUsingBitSet(str));
     }
 }
