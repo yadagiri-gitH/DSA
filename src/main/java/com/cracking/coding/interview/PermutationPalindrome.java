@@ -63,7 +63,7 @@ public class PermutationPalindrome {
     }
 
     public static boolean isPermutationOfPalindromeUsingBitSet(String str) {
-        int countOdd = 0;
+        int countOdd ;
         int bit = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) >= 'a' && str.charAt(i) <= 'z') {
