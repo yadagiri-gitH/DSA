@@ -2,28 +2,28 @@ package com.cracking.coding.interview;
 
 public class OneAway {
 
-    public static boolean isOneAway(String str1, String str2) {
+    public static boolean isOneEditAway(String str1, String str2) {
         if (str1.length() == str2.length()) {
-            return isOneEditAway(str1, str2);
+            return isOneReplaceAway(str1, str2);
         }
         return isOneInsertOrRemoveAway(str1, str2);
     }
 
-    public static boolean isOneEditAway(String str1, String str2) {
+    public static boolean isOneReplaceAway(String str1, String str2) {
         if (str1.length() != str2.length()) {
             return false;
         }
 
         int i = 0;
 
-        boolean isDiffFound = false;
+        boolean foundDifferences = false;
 
         while (i < str1.length()) {
             if (str1.charAt(i) != str2.charAt(i)) {
-                if (isDiffFound) {
+                if (foundDifferences) {
                     return false;
                 }
-                isDiffFound = true;
+                foundDifferences = true;
             }
             i++;
         }
@@ -32,7 +32,7 @@ public class OneAway {
     }
 
     public static boolean isOneInsertOrRemoveAway(String str1, String str2) {
-        if (!isOneAwayString(str1, str2))
+        if (!isJustOneCharAway(str1, str2))
             return false;
 
         int i = 0;
@@ -54,7 +54,7 @@ public class OneAway {
         return str1.length() < str2.length() ? str2.length() - count == 1 : str1.length() - count == 1;
     }
 
-    private static boolean isOneAwayString(String str1, String str2) {
+    private static boolean isJustOneCharAway(String str1, String str2) {
         if (str1.length() == str2.length()) {
             return false;
         }
@@ -73,10 +73,46 @@ public class OneAway {
         return true;
     }
 
+    public static boolean isOneCharEditAway(String str1, String str2) {//refactored code of isOneAway
+        if (Math.abs(str1.length() - str2.length()) > 1) {
+            return false;
+        }
+
+        String s1 = str1.length() < str2.length() ? str1 : str2;
+        String s2 = str1.length() < str2.length() ? str2 : str1;
+
+        int index1 = 0;
+        int index2 = 0;
+        boolean foundDifferences = false;
+
+        while (index1 < s1.length() && index2 < s2.length()) {
+            if (s1.charAt(index1) != s2.charAt(index2)) {
+                if (foundDifferences) {
+                    return false;
+                }
+                foundDifferences = true;
+                if (s1.length() == s2.length()) {
+                    index1++;
+                }
+                // index2++;
+            } else {
+                index1++;
+                // index2++;
+            }
+            index2++;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
-        System.out.println(isOneAway("pale", "page"));
-        System.out.println(isOneAway("pale", "ple"));
-        System.out.println(isOneAway("pales", "pale"));
-        System.out.println(isOneAway("pale", "bake"));
+        System.out.println(isOneEditAway("pale", "page"));
+        System.out.println(isOneEditAway("pale", "ple"));
+        System.out.println(isOneEditAway("pales", "pale"));
+        System.out.println(isOneEditAway("pale", "bake"));
+        System.out.println(isOneCharEditAway("pale", "page"));
+        System.out.println(isOneCharEditAway("pale", "ple"));
+        System.out.println(isOneCharEditAway("pales", "pale"));
+        System.out.println(isOneCharEditAway("pale", "bake"));
     }
 }
