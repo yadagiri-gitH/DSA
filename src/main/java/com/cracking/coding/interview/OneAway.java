@@ -6,7 +6,6 @@ public class OneAway {
         if (str1.length() == str2.length()) {
             return isOneEditAway(str1, str2);
         }
-
         return isOneInsertOrRemoveAway(str1, str2);
     }
 
