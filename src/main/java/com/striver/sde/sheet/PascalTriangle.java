@@ -26,21 +26,21 @@ public class PascalTriangle {
     public static ArrayList<Long> getPascal(ArrayList<ArrayList<Long>> pascalList, int n) {
         ArrayList<Long> lastPascal = pascalList.get(n - 1);
         ArrayList<Long> currentPascal = new ArrayList();
-        currentPascal.add(lastPascal.get(0));
+        currentPascal.add(1L);// currentPascal.add(lastPascal.get(0));
 
         for (int i = 1; i < lastPascal.size(); i++) {
             currentPascal.add(lastPascal.get(i - 1) + lastPascal.get(i));
         }
 
-        currentPascal.add(lastPascal.get(lastPascal.size() - 1));
+        currentPascal.add(1L);//currentPascal.add(lastPascal.get(lastPascal.size() - 1));
 
         return currentPascal;
     }
 
     public static void main(String[] args) {
         ArrayList<ArrayList<Long>> pascalList = printPascal(6);
-        for (ArrayList pascal : pascalList){
-             System.out.println(pascal.toString());
+        for (ArrayList pascal : pascalList) {
+            System.out.println(pascal.toString());
         }
     }
 }
