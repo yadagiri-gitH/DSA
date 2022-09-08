@@ -20,11 +20,9 @@ public class CombinationSumII {
                 break;
             }
 
-            if (input[i] <= target) {
-                ds.add(input[i]);
-                findSumCombinationSet(i + 1, target - input[i], input, ds, list);
-                ds.remove(ds.size() - 1);
-            }
+            ds.add(input[i]);
+            findSumCombinationSet(i + 1, target - input[i], input, ds, list);
+            ds.remove(ds.size() - 1);
         }
 
     }
