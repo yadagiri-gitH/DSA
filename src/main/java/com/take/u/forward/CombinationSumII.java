@@ -13,7 +13,7 @@ public class CombinationSumII {
         }
 
         for (int i = index; i < input.length; i++) {
-            if (i > index && input[i] == input[i - 1])
+            if (i != index && input[i] == input[i - 1]) // if (i > index && input[i] == input[i - 1])
                 continue;
 
             if (input[i] > target) {
