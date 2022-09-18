@@ -4,82 +4,88 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NQueens {
+    public static void solveNQueens(int boardSize) {
 
-    public static boolean isSafePlace(char[][] m, int row, int col) {
-        int r = row;
-        int c = col;
+        char[][] board = new char[boardSize][boardSize];
 
-        while (c >= 0) {
-            if (m[r][c] == 'Q')
-                return false;
-            c--;
+        for (int i = 0; i < boardSize; i++) {
+            for (int j = 0; j < boardSize; j++) {
+                board[i][j] = '.';
+            }
         }
 
-        r = row;
-        c = col;
+        List<List<String>> result = new ArrayList();
+        setNQueens(0, board, result);
+        System.out.println(result);
 
-        while (r >= 0 && c >= 0) {
-            if (m[r][c] == 'Q')
-                return false;
-            r--;
-            c--;
+    }
+
+    public static void setNQueens(int col, char[][] board, List<List<String>> result) {
+        if (col == board.length) {
+            result.add(convertToList(board));
+            return;
         }
 
-        r = row;
-        c = col;
+        for (int row = 0; row < board.length; row++) {
+            if (isSafePlaceForQueen(board, row, col)) {
+                board[row][col] = 'Q';
+                setNQueens(col + 1, board, result);
+                board[row][col] = '.';
+            }
+        }
 
-        while (r < m.length && c >= 0) {
-            if (m[r][c] == 'Q')
+    }
+
+    public static List<String> convertToList(char[][] board) {
+        List<String> list = new ArrayList<>();
+        for (int row = 0; row < board.length; row++) {
+            list.add(new String(board[row]));
+        }
+
+        return list;
+    }
+
+    public static boolean isSafePlaceForQueen(char[][] board, int row, int col) {
+
+        int row1 = row;
+        int col1 = col;
+
+        while (col >= 0) {
+            if (board[row][col] == 'Q') {
                 return false;
-            r++;
-            c--;
+            }
+            col--;
+        }
+
+        row = row1;
+        col = col1;
+
+        while (row >= 0 && col >= 0) {
+            if (board[row][col] == 'Q') {
+                return false;
+            }
+            row--;
+            col--;
+        }
+
+        row = row1;
+        col = col1;
+
+        while (row < board.length && col >= 0) {
+            if (board[row][col] == 'Q') {
+                return false;
+            }
+            row++;
+            col--;
         }
 
         return true;
     }
 
-    public static void setQueens(char[][] board, int col, List<List<String>> result) {
-        if (col == board.length) {
-            result.add(construct(board));
-            return;
-        }
-
-        for (int row = 0; row < board.length; row++) {
-            if (isSafePlace(board, row, col)) {
-                board[row][col] = 'Q';
-                setQueens(board, col + 1, result);
-                board[row][col] = '.';
-            }
-        }
-
-    }
-
-    public static List<String> construct(char[][] board) {
-        List<String> result = new ArrayList<>();
-        for (int i = 0; i < board.length; i++) {
-            result.add(new String(board[i]));
-        }
-        return result;
-    }
-
-
-    public static void solveNQueens(int n) {
-        char[][] board = new char[4][4];
-
-        for (int row = 0; row < n; row++) {
-            for (int col = 0; col < n; col++) {
-                board[row][col] = '.';
-            }
-        }
-
-        List<List<String>> boardResult = new ArrayList<>();
-        setQueens(board, 0, boardResult);
-        System.out.println(boardResult);
-
-    }
 
     public static void main(String[] args) {
-        solveNQueens(4);
-    }
 
+        solveNQueens(8);
+
+    }
 }
