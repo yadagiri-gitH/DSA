@@ -9,11 +9,7 @@ public class MColoring {
         int nodeSize = graph.length;
         int[] colors = new int[nodeSize];
 
-        if (isPossibleMColoring(1, graph, nodeSize, noOfColors, colors)) {
-            return true;
-        } else {
-            return false;
-        }
+        return isPossibleMColoring(1, graph, nodeSize, noOfColors, colors);
     }
 
     public static boolean isPossibleMColoring(int nodeNum, List<Integer>[] graph, int n, int noOfColors, int[] colors) {
