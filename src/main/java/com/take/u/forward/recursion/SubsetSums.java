@@ -1,4 +1,4 @@
-package com.take.u.forward;
+package com.take.u.forward.recursion;
 
 import java.util.ArrayList;
 import java.util.Collections;

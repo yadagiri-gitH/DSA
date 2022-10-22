@@ -1,4 +1,4 @@
-package com.take.u.forward;
+package com.take.u.forward.recursion;
 
 public class Sudoku {
     public static boolean solveSudoku(int[][] puzzle) {
