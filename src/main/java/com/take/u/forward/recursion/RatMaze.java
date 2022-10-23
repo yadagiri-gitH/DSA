@@ -14,11 +14,13 @@ public class RatMaze {
                 {0, 0, 0, 0},
                 {0, 0, 0, 0},
                 {0, 0, 0, 0}};
-        List<String> mazeRoutes = new ArrayList<>();
+
         if (m[0][0] != 1) {
-            System.out.println("Rat cannot start from 0 and 0 and not possible to go to " + (n - 1) + " and " + (n - 1) + " position");
+            System.out.println("Rat can't move from (0,0) position and not possible to reach (" + (n - 1) + "," + (n - 1) + ") position");
             return;
         }
+
+        List<String> mazeRoutes = new ArrayList<>();
         mazeRoutes(m, n, vis, 0, 0, "", mazeRoutes);
         System.out.println(mazeRoutes);
     }
