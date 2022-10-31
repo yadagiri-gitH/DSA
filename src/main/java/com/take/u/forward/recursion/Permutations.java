@@ -45,7 +45,7 @@ public class Permutations {
 
 
     public static void main(String[] args) {
-        int[] nums = {0,1,2};
+        int[] nums = {1,2,3};
         List<List<Integer>> permutationList = new ArrayList<>();
         boolean[] isExist = new boolean[nums.length];
         // listPermutations(0,nums, isExist, new ArrayList<>(), permutationList);
