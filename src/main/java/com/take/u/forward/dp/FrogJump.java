@@ -50,7 +50,7 @@ public class FrogJump {
         return dp[index] = Math.min(firstStep, secondStep);
     }*/
 
-    //dp memorization
+    //tabulation
     public static int findFrogMinimumLostJumps(int n, int[] heights, int[] dp) {
         dp[0] = 0;
         for (int i = 1; i < n; i++) {
@@ -90,6 +90,7 @@ public class FrogJump {
     public static void main(String[] args) {
         int n = 4;
         int[] heights = {10, 20, 30, 10};
+        //here frogJump method takes care of passing n or n-1 based on recursion or tabulation
         System.out.println("Minimum number of height that Frog takes " + frogJump(n, heights));
     }
 }
