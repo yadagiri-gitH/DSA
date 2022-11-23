@@ -16,7 +16,7 @@ public class MaximumNonAdjacentSum {
         return Math.max(pick, notPick);
     }
 
-    public static int maximumNonAdjacentSum(int index, int[] nums, int[] ans) {
+    public static int maximumNonAdjacentSum(int index, int[] nums, int[] nonAdjSumAns) {
         if (index == 0) {
             return nums[index];
         }
@@ -25,14 +25,14 @@ public class MaximumNonAdjacentSum {
             return 0;
         }
 
-        if (ans[index] != -1) {
-            return ans[index];
+        if (nonAdjSumAns[index] != -1) {
+            return nonAdjSumAns[index];
         }
 
         //not adjacent
         int pick = nums[index] + maximumNonAdjacentSum(index - 2, nums);
         int notPick = 0 + maximumNonAdjacentSum(index - 1, nums);
-        return ans[index] = Math.max(pick, notPick);
+        return nonAdjSumAns[index] = Math.max(pick, notPick);
     }
 
     public static int maximumNonAdjacentSum(int[] nums, int[] ans) {
