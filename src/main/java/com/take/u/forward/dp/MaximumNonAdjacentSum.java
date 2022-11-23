@@ -12,8 +12,8 @@ public class MaximumNonAdjacentSum {
 
         //not adjacent
         int pick = nums[index] + maximumNonAdjacentSum(index - 2, nums);
-        int notPick = 0 + maximumNonAdjacentSum(index - 1, nums);
-        return Math.max(pick, notPick);
+        int nonPick = 0 + maximumNonAdjacentSum(index - 1, nums);
+        return Math.max(pick, nonPick);
     }
 
     public static int maximumNonAdjacentSum(int index, int[] nums, int[] nonAdjSumAns) {
@@ -31,40 +31,48 @@ public class MaximumNonAdjacentSum {
 
         //not adjacent
         int pick = nums[index] + maximumNonAdjacentSum(index - 2, nums);
-        int notPick = 0 + maximumNonAdjacentSum(index - 1, nums);
-        return nonAdjSumAns[index] = Math.max(pick, notPick);
+        int nonPick = 0 + maximumNonAdjacentSum(index - 1, nums);
+        return nonAdjSumAns[index] = Math.max(pick, nonPick);
     }
 
-    public static int maximumNonAdjacentSum(int[] nums, int[] ans) {
+    public static int maximumNonAdjacentSum(int[] nums, int[] nonAdjSumAns) {
 
-        ans[0] = nums[0];
+        nonAdjSumAns[0] = nums[0];
 
-        for (int i = 1; i < nums.length; i++) {
-            int pick = nums[i] + maximumNonAdjacentSum(i - 2, nums);
-            int notPick = 0 + maximumNonAdjacentSum(i - 1, nums);
-            ans[i] = Math.max(pick, notPick);
+        for (int i = 1; i < nums.length; i++) {//12, 8, 4, 9
+            int pick = nums[i];
+            if (i > 1) {
+                pick += nonAdjSumAns[i - 2];//it won't work if it is pick += nums[i - 2] obviously as you are not considering the already computed values
+            }
+
+            int nonPick = 0 + nonAdjSumAns[i - 1];//it won't work if it isnonPick = 0 + nums[i - 1]
+
+            nonAdjSumAns[i] = Math.max(pick, nonPick);
         }
 
-        return ans[nums.length - 1];
+        return nonAdjSumAns[nums.length - 1];
     }
 
     public static int maximumNonAdjacentSum(int[] nums) {
         int lastPrev = 0;
         int prev = nums[0];
         for (int i = 1; i < nums.length; i++) {
-            int pick = lastPrev + nums[i];//n-2
-            int notPick = prev;
-            int current = Math.max(pick, notPick);
+            //int pick = lastPrev + nums[i];
+            int pick = nums[i];
+            if (i > 1) {
+                pick += lastPrev;
+            }
+            int nonPick = prev;//0+prev;
+            int current = Math.max(pick, nonPick);
             lastPrev = prev;
             prev = current;
         }
-
         return prev;
     }
 
     public static void main(String[] args) {
         int n = 4;
-        int[] nums = new int[]{2, 8, 4, 9};
+        int[] nums = new int[]{12, 8, 4, 9};
         int nonAdjSumAns[] = new int[nums.length];
         for (int i = 0; i < nonAdjSumAns.length; i++) {
             nonAdjSumAns[i] = -1;
