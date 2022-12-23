@@ -27,6 +27,7 @@ public class UniqueCharacter {
     public boolean isUniqueCharStringUsingBitSet(String s) {
         int bitChecker = 0;
         for (int i = 0; i < s.length(); i++) {
+            //ASCII Chart(Decimal(0-255)) a-97,b-98..z-122,A-65,B-66..Z-90
             int val = s.charAt(i) - 'a';
             if ((bitChecker & (1 << val)) > 0) {
                 return false;
