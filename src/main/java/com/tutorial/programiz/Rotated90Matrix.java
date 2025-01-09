@@ -38,17 +38,23 @@ public class Rotated90Matrix {
 
     // Function to rotate the matrix 90 degrees clockwise
     public static int[][] rotateMatrixClockwise(int[][] matrix) {
+
         int rows = matrix.length;
         int columns = matrix[0].length;
         int[][] rotatedMatrix = new int[columns][rows];
 
-        int cs = 0;
         for (int i = 0; i < columns; i++) {
             int rs = rows - 1;
             for (int j = 0; j < rows; j++) {
-                rotatedMatrix[i][j] = matrix[rs - j][cs + i];
+                rotatedMatrix[i][j] = matrix[rs - j][i];
             }
         }
+
+       /* for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                rotatedMatrix[j][rows - 1 - i] = matrix[i][j];
+            }
+        }*/
 
         return rotatedMatrix;
     }
