@@ -26,7 +26,7 @@ public class SubsetSum {
         if (index == 0)
             return arr[index] == k;
         if (dp[index][k] != -1) {
-            return dp[index][k] != -1;
+            return true;
         } else {
             boolean noTake = subSetSumToK(index - 1, k, arr, dp);
             boolean take = false;
@@ -68,8 +68,6 @@ public class SubsetSum {
     }
 
     public static boolean subSetSumToKUsingSpaceOptimization(int k, int[] arr) {
-
-        int n = arr.length;
 
         boolean[] prev = new boolean[k + 1];
         boolean[] curr = new boolean[k + 1];
