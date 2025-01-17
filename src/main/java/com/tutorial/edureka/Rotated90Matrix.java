@@ -1,4 +1,4 @@
-package com.tutorial.programiz;
+package com.tutorial.edureka;
 
 import java.util.Scanner;
 
