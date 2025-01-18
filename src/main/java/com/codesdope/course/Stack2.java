@@ -29,7 +29,17 @@ public class Stack2 {
         }
     }
 
-    public int pop() {
+    /*public int pop() {
+        if (isEmpty()) {
+            System.out.println("Stack underflow. No elements to pop.");
+            return -1;
+        }
+        int value = top.data;
+        top = top.next; // Move the top to the next node
+        return value;
+    }*/
+
+    public int pop() {//above pop looks valid as it doesn't traverse entire stack
         if (this.top == null) {
             System.out.println("Stack Underflow");
             return -1000;
@@ -51,7 +61,7 @@ public class Stack2 {
         }
     }
 
-    public int top() {
+    public int top() {//peek()
         if (top == null) {
             return -1000;
         } else {
