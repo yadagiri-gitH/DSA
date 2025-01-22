@@ -1,4 +1,4 @@
-package com.cracking.coding.interview;
+package com.cracking.coding.interview.list;
 
 public class SinglyLinkedList<E> {
     private int size = 0;

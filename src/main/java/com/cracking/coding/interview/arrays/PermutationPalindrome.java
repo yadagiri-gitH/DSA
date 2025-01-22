@@ -1,4 +1,4 @@
-package com.cracking.coding.interview;
+package com.cracking.coding.interview.arrays;
 
 public class PermutationPalindrome {
     /* this will work if every bit of String is considered including special symbols ,means it won't work for aa b*/

@@ -1,4 +1,4 @@
-package com.cracking.coding.interview;
+package com.cracking.coding.interview.arrays;
 
 public class ZeroMatrix {
     public static void main(String[] args) {

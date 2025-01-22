@@ -1,4 +1,4 @@
-package com.cracking.coding.interview;
+package com.cracking.coding.interview.arrays;
 
 public class StringCompression {
     public static String compression(String str) {

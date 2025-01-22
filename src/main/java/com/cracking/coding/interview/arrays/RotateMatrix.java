@@ -1,4 +1,4 @@
-package com.cracking.coding.interview;
+package com.cracking.coding.interview.arrays;
 
 public class RotateMatrix {
     public static void main(String[] args) {
