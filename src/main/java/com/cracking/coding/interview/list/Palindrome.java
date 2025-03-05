@@ -40,7 +40,7 @@ public class Palindrome {
         return head;
     }
 
-    public static boolean isPalindromeCheckOnStack(Node head) {
+    public static boolean palindromeCheckOnStack(Node head) {
         Node slow = head;
         Node fast = head;
 
@@ -79,7 +79,7 @@ public class Palindrome {
         System.out.println(nums.print(nums.getHead()) + " is Palindrome : " + isPalindrome(nums.getHead()));
         nums = new BasicLinkedList<>();
         nums.add(6);
-        System.out.println(nums.print(nums.getHead()) + " is Palindrome : " + isPalindromeCheckOnStack(nums.getHead()));
+        System.out.println(nums.print(nums.getHead()) + " is Palindrome : " + palindromeCheckOnStack(nums.getHead()));
     }
 
 }
