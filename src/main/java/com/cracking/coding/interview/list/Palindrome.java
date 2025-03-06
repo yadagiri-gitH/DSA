@@ -6,6 +6,8 @@ import static com.cracking.coding.interview.list.BasicLinkedList.Node;
 
 public class Palindrome {
 
+    public static Node frontier = null;
+
     public static boolean isPalindrome(Node head) {
         Node slow = head;
         Node fast = head;
@@ -67,6 +69,98 @@ public class Palindrome {
         return true;
     }
 
+    public static boolean checkPalindrome1(Node head) {
+        frontier = head;
+        return recursivePalindromeCheck(head);
+    }
+
+    public static boolean recursivePalindromeCheck(Node head) {
+
+        if (head == null) {
+            return true;
+        }
+
+        boolean isPalindrome = recursivePalindromeCheck(head.next);
+
+        if (!isPalindrome)
+            return false;
+
+        if (head.data != frontier.data) {
+            return false;
+        }
+
+        frontier = frontier.next;
+
+        return true;
+    }
+
+
+    public static boolean checkPalindrome2(Node head) {
+        int length = length(head);
+        Result result = recursivePalindromeCheck2(head, length);
+        return result.isPalindrome;
+    }
+
+    private static int length(Node head) {
+        int size = 0;
+        while (head != null) {
+            size++;
+            head = head.next;
+        }
+        return size;
+    }
+
+    public static Result recursivePalindromeCheck2(Node head, int length) {
+        if (head == null || length <= 0) {//even
+            return new Result(head, true);
+        } else if (length == 1) {//odd
+            return new Result(head.next, true);
+        }
+
+        Result result = recursivePalindromeCheck2(head.next, length - 2);
+
+        if (!result.isPalindrome || result.node == null) {
+            return result;
+        }
+
+        result.isPalindrome = head.data == result.node.data;
+        result.node = result.node.next;
+
+        return result;
+    }
+
+    public static boolean checkPalindrome3(Node head) {
+        return recursivePalindromeCheck3(head, head).isPalindrome;
+    }
+
+    public static Result recursivePalindromeCheck3(Node head, Node current) {
+        if (current == null) {
+            return new Result(head, true);
+        }
+
+        Result result = recursivePalindromeCheck3(head, current.next);
+
+        if (!result.isPalindrome || result.node == null) {
+            return result;
+        }
+
+        result.isPalindrome = current.data == result.node.data;
+        result.node = result.node.next;
+
+        return result;
+    }
+
+
+    private static class Result {
+        public Node node = null;
+        public boolean isPalindrome;
+
+        public Result(Node head, boolean res) {
+            this.node = head;
+            this.isPalindrome = res;
+        }
+    }
+
     public static void main(String[] args) {
         BasicLinkedList<Integer> nums = new BasicLinkedList<>();
         nums.add(6);
@@ -80,6 +174,25 @@ public class Palindrome {
         nums = new BasicLinkedList<>();
         nums.add(6);
         System.out.println(nums.print(nums.getHead()) + " is Palindrome : " + palindromeCheckOnStack(nums.getHead()));
+        BasicLinkedList<Integer> nums2 = new BasicLinkedList<>();
+        nums2.add(8);
+        nums2.add(9);
+        nums2.add(8);
+        nums2.add(9);
+        System.out.println(nums.print(nums2.getHead()) + " is Palindrome : " + checkPalindrome1(nums2.getHead()));
+
+        BasicLinkedList<Integer> nums3 = new BasicLinkedList<>();
+        nums3.add(8);
+        nums3.add(9);
+        nums3.add(8);
+        nums3.add(9);
+        nums3.add(8);
+        System.out.println(nums.print(nums3.getHead()) + " is Palindrome : " + checkPalindrome2(nums3.getHead()));
+
+        BasicLinkedList<Integer> nums4 = new BasicLinkedList<>();
+        nums4.add(9);
+        nums4.add(9);
+        System.out.println(nums.print(nums4.getHead()) + " is Palindrome : " + checkPalindrome3(nums4.getHead()));
     }
 
 }
