@@ -33,7 +33,7 @@ public class MultiStack {
             throw new IllegalAccessException("Stack is Empty !! Please Add and clear.");
         }
         int data = values[(stackNum - 1) * stackSize + sizes[stackNum - 1] - 1];
-        values[(stackNum - 1) * stackSize + sizes[stackNum - 1] - 1] = 0;
+        values[(stackNum - 1) * stackSize + (sizes[stackNum - 1] - 1)] = 0;
         sizes[stackNum - 1]--;
         return data;
     }
@@ -42,8 +42,7 @@ public class MultiStack {
         if (isEmptyStack(stackNum - 1)) {
             throw new IllegalAccessException("Stack is Empty !! Please Add and clear .");
         }
-
-        return values[(stackNum - 1) * stackSize + sizes[stackNum - 1] - 1];
+        return values[(stackNum - 1) * stackSize + (sizes[stackNum - 1] - 1)];
     }
 
     private boolean isFullStack(int stackNum) {
