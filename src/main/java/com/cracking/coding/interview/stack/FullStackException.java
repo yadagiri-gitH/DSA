@@ -1,4 +1,4 @@
-package com.cracking.coding.interview.queue;
+package com.cracking.coding.interview.stack;
 
 public class FullStackException extends Exception {
     public FullStackException(String message) {

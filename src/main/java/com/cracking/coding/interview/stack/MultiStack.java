@@ -1,4 +1,4 @@
-package com.cracking.coding.interview.queue;
+package com.cracking.coding.interview.stack;
 
 import java.util.Arrays;
 

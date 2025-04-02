@@ -1,4 +1,4 @@
-package com.cracking.coding.interview.queue;
+package com.cracking.coding.interview.stack;
 //if its 0th based index ,we don't need to include -1 to refer the index position in below code snippets
 public class FixedMultiStack {
     public int numberOfStacks;

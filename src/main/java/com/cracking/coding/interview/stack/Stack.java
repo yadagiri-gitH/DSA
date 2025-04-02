@@ -1,4 +1,4 @@
-package com.cracking.coding.interview.queue;
+package com.cracking.coding.interview.stack;
 
 public class Stack<T> {
     public Node<T> top;
