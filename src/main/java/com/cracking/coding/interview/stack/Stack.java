@@ -42,9 +42,20 @@ public class Stack<T> {
 
     public T peek() throws EmptyStackException {
         if (top == null) {
-            throw new EmptyStackException("Stack is Empty !!");
+            throw new EmptyStackException("Stack Empty !!");
         }
         return top.value;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node node = top;
+        while (node != null) {
+            sb.append(node.value);
+            sb.append(" ");
+            node = node.next;
+        }
+        return sb.toString();
     }
 
     public boolean isEmpty() {
