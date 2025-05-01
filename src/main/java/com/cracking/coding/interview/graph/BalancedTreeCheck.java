@@ -31,7 +31,7 @@ public class BalancedTreeCheck {
             return -1;
 
         int leftHeight = checkHeight(node.left);
-        if (leftHeight == Integer.MIN_VALUE)
+        if (leftHeight == Integer.MIN_VALUE) //if (leftHeight == -1) return -1;
             return Integer.MIN_VALUE; // left subtree unbalanced
 
         int rightHeight = checkHeight(node.right);
