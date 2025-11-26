@@ -21,8 +21,8 @@ public class WordConcatenation {
         for (int i = 0; i <= str.length() - totalChar; i++) {
             Map<String, Integer> wordsSeen = new HashMap<>();
             for (int j = 0; j < wordCount; j++) {
-                int nexrWordIndex = i + j * wordLength;
-                String nextWord = str.substring(nexrWordIndex, nexrWordIndex + wordLength);
+                int nextWordIndex = i + j * wordLength;
+                String nextWord = str.substring(nextWordIndex, nextWordIndex + wordLength);
                 if (!frequency.containsKey(nextWord))
                     break;
 
